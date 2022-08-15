@@ -2,36 +2,48 @@ import React, { useState } from 'react';
 // import App from './App';
 // import './index.css';
 
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { Router } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate
+} from 'react-router-dom';// import { Router } from 'react-router-dom';
 import './App.css';
 // flowbite
-import { Toast } from 'flowbite-react';
-import {HiFire} from 'react-icons/hi';
+// import { Toast } from 'flowbite-react';
+// import {HiFire} from 'react-icons/hi';
 // custom
-import SidebarComponent from './components/navigation/ResponsiveDrawer';
+import Drawer from './components/navigation/Sidebar';
+// pages
+import DashboardPage from './components/pages/Dashboard';
+import MediaPage from './components/pages/Media';
+import ReservationsPage from './components/pages/Reservations';
+import SchedulePage from './components/pages/Schedule';
+import ToursPage from './components/pages/Tours';
+import BlogsPage from './components/pages/Blogs';
+import UsersPage from './components/pages/Users';
+import SettingsPage from './components/pages/Settings';
+// utilities
+// logout function to use on logout route
 
 export default function App() {
-    const [count, setCount] = useState(0);
-
-    return (
-        <>
-            {/* <nav>topbar</nav> */}
-            <SidebarComponent />
-            <main>actual pages
-                {/* <SidebarComponent /> */}
+    return (            
+        <Router>
+            <Drawer />
+            <main>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/media" element={<MediaPage />} />
+                    <Route path="/reservations" element={<ReservationsPage />} />
+                    <Route path="/schedule" element={<SchedulePage />} />
+                    <Route path="/tours" element={<ToursPage />} />
+                    <Route path="/blogs" element={<BlogsPage />} />
+                    <Route path="/users" element={<UsersPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                </Routes>
             </main>
-            {/* <Toast>
-                <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
-                    <HiFire className="h-5 w-5" />
-                </div>
-                <div className="ml-3 text-sm font-normal">
-                Set yourself free.
-                </div>
-                <Toast.Toggle />
-            </Toast> */}
-        </>
-        
+        </Router>    
     );
 }
 

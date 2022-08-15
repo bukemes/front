@@ -5,9 +5,16 @@
         "content builder": "Inhoud Bouwer",
         "media": "Media",
         "profile": "Profiel",
-        "schedule": "Planning",
+        "schedule": "Agenda",
+        "tours": "Rondleidingen",
+        "drafts": "Concepten",
+        "version": "Versie",
         "settings": "Instellingen",
-        "sign Out": "Afmelden",
-        "users": "Gebruikers"
+        "logout": "Afmelden",
+        "users": "Gebruikers",
+        "reservation":"Reservatie",
+        "reservations":"Reservaties",
+        "blog":"Blog",
+        "blogs":"Blogs"
     }
 }

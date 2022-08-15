@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function SchedulePage() {
+export default function BlogsPage() {
 
     return (
         <>
-            SchedulePage
+            BlogsPage
         </>
     );
 }
