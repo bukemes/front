@@ -1,34 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState } from 'react';
+// import App from './App';
+// import './index.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { Router } from 'react-router-dom';
+import './App.css';
+// flowbite
+import { Toast } from 'flowbite-react';
+import {HiFire} from 'react-icons/hi';
+// custom
+import SidebarComponent from './components/navigation/ResponsiveDrawer';
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+export default function App() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <>
+            {/* <nav>topbar</nav> */}
+            <SidebarComponent />
+            <main>actual pages
+                {/* <SidebarComponent /> */}
+            </main>
+            {/* <Toast>
+                <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-500 dark:bg-blue-800 dark:text-blue-200">
+                    <HiFire className="h-5 w-5" />
+                </div>
+                <div className="ml-3 text-sm font-normal">
+                Set yourself free.
+                </div>
+                <Toast.Toggle />
+            </Toast> */}
+        </>
+        
+    );
 }
 
-export default App
+
+// import ReactDOM from 'react-dom/client';
+
+// ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+//     <React.StrictMode>
+//         <App />
+//     </React.StrictMode>
+// );

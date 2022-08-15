@@ -1,0 +1,13 @@
+{
+    "title": "BoekMS",
+    "sidebar":{
+        "dashboard": "Dashboard",
+        "content builder": "Inhoud Bouwer",
+        "media": "Media",
+        "profile": "Profiel",
+        "schedule": "Planning",
+        "settings": "Instellingen",
+        "sign Out": "Afmelden",
+        "users": "Gebruikers"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "title": "Bukemes",
+    "sidebar":{
+        "dashboard": "Dashboard",
+        "content builder": "Content Builder",
+        "media": "Media",
+        "profile": "Profile",
+        "schedule": "Schedule",
+        "tours": "Tours",
+        "drafts": "Drafts",
+        "version": "Version",
+        "settings": "Settings",
+        "sign Out": "Sign Out",
+        "users": "Users",
+        "reservation":"Reservation",
+        "reservations":"Reservations",
+        "blog":"Blog",
+        "blogs":"Blogs"
+    }
+}
