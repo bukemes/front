@@ -41,10 +41,15 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
         // set theme from localstorage.
         // should probably be moved to an init class and imported in root
         changeTheme(theme);
-        console.log('useEffect');
+        // console.log('[]');
         // get lang from cookie/storage/...
         // i18n.changeLanguage('nl');
     } , []);
+
+    useEffect(() => {
+        changeTheme(theme);
+        // console.log('[theme]');
+    } , [theme]);
 
     return (
         <nav className="w-fit bg-gray-50">
@@ -161,10 +166,10 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                         </Button.Group>
 
                         <Button.Group>
-                            <Button color="gray" onClick={() => changeTheme('light')}>
+                            <Button color="gray" onClick={() => setTheme('light')}>
                                 Light
                             </Button>
-                            <Button color="gray" onClick={() => changeTheme('dark')}>
+                            <Button color="gray" onClick={() => setTheme('dark')}>
                                 Dark
                             </Button>
                         </Button.Group>        

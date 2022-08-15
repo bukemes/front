@@ -13,7 +13,7 @@ import './App.css';
 // import { Toast } from 'flowbite-react';
 // import {HiFire} from 'react-icons/hi';
 // custom
-import Drawer from './components/navigation/Sidebar';
+import Drawer from './components/layouts/Sidebar';
 // pages
 import DashboardPage from './components/pages/Dashboard';
 import MediaPage from './components/pages/Media';
@@ -28,7 +28,8 @@ import SettingsPage from './components/pages/Settings';
 
 export default function App() {
     return (            
-        <Router>
+    // basename="/admin"
+        <Router >
             <Drawer />
             <main>
                 <Routes>
@@ -41,6 +42,7 @@ export default function App() {
                     <Route path="/blogs" element={<BlogsPage />} />
                     <Route path="/users" element={<UsersPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
+                    {/* <Route path="/logout" element={<LogoutPage />} /> */}
                 </Routes>
             </main>
         </Router>    

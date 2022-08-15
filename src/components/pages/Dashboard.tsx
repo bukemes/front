@@ -1,17 +1,14 @@
 import * as React from 'react';
-import logo from '/svg/vite.svg'; // '../../../public/logo.svg';
+// import logo from '../../../assets/svg/vite.svg'; // '../../../public/logo.svg';
+// import viteLogo from './../../assets/svg/vite.svg';
 
 export default function Dashboard() {
     const [count, setCount] = React.useState(0);
 
-    // function addNumbers(x: number, y: number){
-    //     return x+y;
-    // }
-
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                <img src='/svg/vite.svg' className="App-logo" alt="logo" />
                 <p>Hello Vite + React!</p>
                 <p>
                     <button type="button" onClick={() => setCount((count2) => count2 + 1)}>
