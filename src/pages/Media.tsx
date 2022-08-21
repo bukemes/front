@@ -1,14 +1,18 @@
 // Media management page, allows users to upload and manage images, videos etc.
-import React from 'react';
+import React, { useContext } from 'react';
 import { Label, FileInput } from 'flowbite-react';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function MediaPage() {
-
+    // const authState = useContext(AuthContext);
+    
     return (
         <>
             {/* MediaPage */}
             <FileUpload />
+            <br></br>
+            {/* <pre>{JSON.stringify(authState)}</pre> */}
         </>
     );
 }

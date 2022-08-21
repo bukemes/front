@@ -15,6 +15,12 @@
         "reservation":"Reservation",
         "reservations":"Reservations",
         "blog":"Blog",
-        "blogs":"Blogs"
+        "blogs":"Blogs",
+        "page":"Page",
+        "pages":"Pages",
+        "review":"Review",
+        "reviews":"Reviews",
+        "log":"Log",
+        "logs":"Logs"
     }
 }

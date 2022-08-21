@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Header() {
+export default function NotFoundPage() {
 
     return (
         <>
-            Header Content Here
+            404 page not found
         </>
     );
 }

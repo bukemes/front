@@ -15,6 +15,8 @@
         "reservation":"Reservatie",
         "reservations":"Reservaties",
         "blog":"Blog",
-        "blogs":"Blogs"
+        "blogs":"Blogs",
+        "page":"Pagina",
+        "pages":"Paginas"
     }
 }

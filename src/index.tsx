@@ -1,20 +1,20 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
-// import './index.css';
-// localization
-// import i18n (needs to be bundled ;))
-import './i18n/i18n';
 
-// ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-//     <React.StrictMode>
-//         <App />
-//     </React.StrictMode>
-// );
+import './styles/index.css'; // tailwind css
+import './i18n/i18n'; // localization, needs to be bundled
+import { AuthContextProvider } from './contexts/AuthContext'; // authentication context
+import { Flowbite } from 'flowbite-react'; // theme context
+import App from './App'; // Main app component
+
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
-        <App />
+        <Flowbite>
+            <AuthContextProvider>
+                <App />
+            </AuthContextProvider>
+        </Flowbite>
     </React.StrictMode>
 );
