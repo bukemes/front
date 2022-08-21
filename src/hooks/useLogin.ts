@@ -28,7 +28,7 @@ export const useLogin = () => {
         http.post('/login', data, config)
             .then(({ data }) => {
                 setIsLoading(false);
-                localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
+                // localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
                 dispatch({ type: 'LOGIN', payload: data });
             })
             .catch((err) => {

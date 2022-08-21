@@ -29,7 +29,7 @@ export const useSignup = () => {
             .then(({ data }) => {
                 setIsLoading(false);
                 console.log('useSignup.data', data);
-                localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
+                // localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
                 dispatch({ type: 'LOGIN', payload: data });
             })
             .catch((err) => {

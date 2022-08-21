@@ -4,7 +4,6 @@
 import React, { createContext, useReducer } from 'react';
 
 // CONTEXT
-
 const initialState = {
     isAuthenticated: false,
     user: {},

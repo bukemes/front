@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect,  } from 'react';
+import React, { useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Routes,
@@ -26,15 +26,16 @@ import SettingsPage from './pages/Settings';
 // auth
 // import { AuthContext } from './contexts/AuthContext';
 import { useAuthContext } from './hooks/useAuthContext';
-import { useToken } from './hooks/useToken';
+import { useRefresh } from './hooks/useRefresh';
 
 export default function App() {
     // const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-    const { isAuthenticated, user } = useAuthContext();
-    const { relogin } = useToken();
+    const { isAuthenticated } = useAuthContext();
+    const { refresh } = useRefresh();
 
+    console.log('isAuthenticated: ', isAuthenticated);
     useEffect(() => {
-        relogin();
+        refresh();
     } , []);
 
     return (               
