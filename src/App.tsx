@@ -23,6 +23,8 @@ import ToursPage from './pages/Tours';
 import BlogsPage from './pages/Blogs';
 import UsersPage from './pages/Users';
 import SettingsPage from './pages/Settings';
+// components
+import Footer from './components/Footer';
 // auth
 // import { AuthContext } from './contexts/AuthContext';
 import { useAuthContext } from './hooks/useAuthContext';
@@ -30,20 +32,26 @@ import { useRefresh } from './hooks/useRefresh';
 
 export default function App() {
     // const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-    const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated, user } = useAuthContext();
     const { refresh } = useRefresh();
+    // const {drawerWidth, setDrawerWidth} = useState(0);
 
-    console.log('isAuthenticated: ', isAuthenticated);
+    console.log('authContext: ', isAuthenticated, user);
     useEffect(() => {
         refresh();
+        // document.getElementsByTagName('nav')[0].getAttribute.width = drawerWidth;
     } , []);
+    
 
     return (               
         isAuthenticated ? (    
-            <Router >
+            <Router>
                 <Drawer />
-                <main className='dark:bg-slate-700 bg-slate-200 
-                        flex w-screen h-screen justify-center p-2'>
+                <main className='flex flex-col w-screen justify-center pt-2 pr-2 pb-2'
+                    style={{
+                        marginLeft: '272px'
+                    }}>
+                    {/*  h-screen */}
                     <Routes>
                         <Route path="/" element={<Navigate to="/dashboard" replace />} />
                         <Route path="/dashboard" element={<DashboardPage />} />
@@ -54,21 +62,22 @@ export default function App() {
                         <Route path="/blogs" element={<BlogsPage />} />
                         <Route path="/users" element={<UsersPage />} />
                         <Route path="/settings" element={<SettingsPage />} />
+                        <Route path="/tos" element={<TOSPage />} />
+                        <Route path="/privacy" element={<PrivacyPage />} />
                         <Route path="*" element={<NotFoundPage />} />
-                        {/* <Route path="/logout" element={<LogoutPage />} /> */}
                     </Routes>
+                    <Footer />
                 </main>
             </Router>   
         ) : (
             <Router>
-                <main className='dark:bg-slate-700 bg-slate-200 
-                        flex w-screen h-screen justify-center items-center'>
+                <main className='flex w-screen h-screen justify-center items-center'>
                     <Routes>
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/signup" element={<SignupPage />} />
                         <Route path="/tos" element={<TOSPage />} />
                         <Route path="/privacy" element={<PrivacyPage />} />
-                        <Route path="*" element={<Navigate to="/login" />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </main>
             </Router>

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 import { ISignup, http, IPKCE } from '../utilities/auth';
 import ICustomError from '../models/ICustomError';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 
 export const useSignup = () => {
     const [error, setError] = useState<ICustomError | null>(null);
@@ -26,11 +28,11 @@ export const useSignup = () => {
         };
         
         http.post('/signup', data, config)
-            .then(({ data }) => {
+            .then(() => { // { data } 
+                const newToken: string = Cookies.get('token') as string;
+                const { email, role }: any = jwt_decode(newToken);
                 setIsLoading(false);
-                console.log('useSignup.data', data);
-                // localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
-                dispatch({ type: 'LOGIN', payload: data });
+                dispatch({ type: 'LOGIN', payload: { email, role } });
             })
             .catch((err) => {
                 setIsLoading(false);

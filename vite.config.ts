@@ -7,5 +7,9 @@ export default defineConfig({
     server: {
         port: 9003
     },
+    preview: {
+        port: 9003,
+        open: true
+    },
     css: { postcss: './postcss.config.cjs' },
 });

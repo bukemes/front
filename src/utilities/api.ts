@@ -1,25 +1,8 @@
-function get(url: string) {
-    console.log('GET: ', url);
-}
+import axios from 'axios';
 
-function post(url: string) {
-    console.log('POST: ', url);
-}
+export const api = axios.create({
+    baseURL: 'http://localhost:9002/api',
+    withCredentials: true
+});
 
-function put(url: string) {
-    console.log('PUT: ', url);
-}
 
-function del(url: string) {
-    console.log('DELETE: ', url);
-}
-
-function authenticate(url: string) {
-    console.log('AUTHENTICATE: ', url);
-}
-
-function authorize(url: string) {
-    console.log('AUTHORIZE: ', url);
-}
-
-export { get, post, put, del, authenticate, authorize }; 

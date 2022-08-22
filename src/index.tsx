@@ -9,6 +9,7 @@ import App from './App'; // Main app component
 
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
+
 root.render(
     <React.StrictMode>
         <Flowbite>

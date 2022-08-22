@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 import { ILogin, http, IPKCE } from '../utilities/auth';
 import ICustomError from '../models/ICustomError';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
     const [error, setError] = useState<ICustomError | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const { dispatch } = useAuthContext();
+    const navigate = useNavigate();
 
     const login = async (input: ILogin, pkce: IPKCE) => {
         setIsLoading(true);
@@ -26,10 +30,22 @@ export const useLogin = () => {
         };
         
         http.post('/login', data, config)
-            .then(({ data }) => {
+            .then(() => { // { data }
+                const newToken: string = Cookies.get('token') as string;
+                const { email, role }: any = jwt_decode(newToken);
                 setIsLoading(false);
-                // localStorage.setItem('Authorization', `Bearer ${JSON.stringify(data)}`);
-                dispatch({ type: 'LOGIN', payload: data });
+                if(role !== 'admin'){
+                    const error: ICustomError = {
+                        code: 401,
+                        type: 'UNAUTHORIZED',
+                        message: 'You are not an administrator',
+                    };
+                    setError(error);
+                } else {
+                    dispatch({ type: 'LOGIN', payload: { email, role } });
+                    navigate('/media');
+                }
+                
             })
             .catch((err) => {
                 setIsLoading(false);

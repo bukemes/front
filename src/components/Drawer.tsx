@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // navigation
 import { Link } from 'react-router-dom';
 // components
@@ -15,7 +15,6 @@ import {
     HiChat,
     HiLocationMarker,
     HiPencilAlt,
-    HiRss
 } from 'react-icons/hi';
 // manually import svg icons
 // import adn from '../../assets/fontawesome/6.0.0/svgs/brands/adn.svg';
@@ -33,8 +32,8 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
     };
 
     return (
-        <nav className="w-fit dark:bg-slate-700 bg-slate-200 p-2">
-            <Sidebar aria-label="Default sidebar ">
+        <nav className="w-fit p-2 h-screen fixed">
+            <Sidebar aria-label="sidebar with navigation">
                 <Sidebar.Items>
                     {/* logo */}                         
                     <Sidebar.Logo
