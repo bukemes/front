@@ -2,6 +2,7 @@ import axios from 'axios';
 import pkceChallenge from 'pkce-challenge';
 
 export const http = axios.create({
+    // baseURL: 'https://auth.tania.tours/',
     baseURL: 'http://localhost:9001/auth',
     withCredentials: true
     // headers: {

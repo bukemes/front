@@ -53,7 +53,6 @@ export default function App() {
                     }}>
                     {/*  h-screen */}
                     <Routes>
-                        <Route path="/" element={<Navigate to="/dashboard" replace />} />
                         <Route path="/dashboard" element={<DashboardPage />} />
                         <Route path="/media" element={<MediaPage />} />
                         <Route path="/reservations" element={<ReservationsPage />} />
@@ -64,6 +63,10 @@ export default function App() {
                         <Route path="/settings" element={<SettingsPage />} />
                         <Route path="/tos" element={<TOSPage />} />
                         <Route path="/privacy" element={<PrivacyPage />} />
+                        {/* special */}
+                        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                        <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+                        <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                     <Footer />
@@ -77,7 +80,7 @@ export default function App() {
                         <Route path="/signup" element={<SignupPage />} />
                         <Route path="/tos" element={<TOSPage />} />
                         <Route path="/privacy" element={<PrivacyPage />} />
-                        <Route path="*" element={<NotFoundPage />} />
+                        <Route path="*" element={<Navigate to="/login" replace />} />
                     </Routes>
                 </main>
             </Router>

@@ -1,4 +1,5 @@
 {
+    "language": "en",
     "title": "Bukemes",
     "sidebar":{
         "dashboard": "Dashboard",
@@ -22,5 +23,27 @@
         "reviews":"Reviews",
         "log":"Log",
         "logs":"Logs"
+    },
+    "admin":{
+        "title":"Title",
+        "description":"Description",
+        "dates":"Dates",
+        "clear":"Clear",
+        "create":"Create",
+        "upload":"Upload",
+        "browse":"Browse",
+        "nofile":"No file selected",
+        "select":"--- Select an option ---",
+        "cancel":"Cancel"
+    },
+    "footer": {
+        "privacy":"Privacy Policy",
+        "terms":"Terms of Service"
+    },
+    "tours": {
+        "edit":"Edit Tour",
+        "create":"Create Tour",
+        "save":"Save Tour",
+        "update":"Update Tour"
     }
 }

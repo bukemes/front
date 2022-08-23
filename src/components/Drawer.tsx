@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // navigation
 import { Link } from 'react-router-dom';
 // components
@@ -22,14 +22,33 @@ import {
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useLogout } from '../hooks/useLogout';
+import { api } from '../utilities/api';
+import {ICounters, initialCounters} from '../models/ICounters';
 
 export default function Drawer() { // props: any // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     const { t } = useTranslation();
     const { logout } = useLogout();
+    const [counters, setCounters] = useState(initialCounters); // I could make a sep
+    
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
     };
+
+    function getCounters() {
+        api.get('metadata/counters').then((res) => {
+            setCounters(res.data as ICounters);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    
+    
+    useEffect(() => {
+        getCounters();
+    }, []);
+
 
     return (
         <nav className="w-fit p-2 h-screen fixed">
@@ -54,32 +73,38 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             >  {t('sidebar.dashboard')}
                             </Sidebar.Item>
                         </Link>
-                        {/* <Link to="/logs">
+
+                        {/* <Link to="/pages">
                             <Sidebar.Item
                                 as="span"
-                                icon={HiRss}
-                            >  {t('sidebar.logs')}
+                                icon={HiDocument}
+                                label={counters.pages || ''}
+                                labelColor="alternative"
+                            > {t('sidebar.pages')}
+                            </Sidebar.Item>       
+                        </Link>  
+
+                        <Link to="/blogs">
+                            <Sidebar.Item
+                                as="span"
+                                label={counters.blogs || ''}
+                                labelColor="alternative"
+                                icon={HiPencilAlt}
+                            > {t('sidebar.blogs')}
                             </Sidebar.Item>
-                        </Link> */}
+                        </Link>  */}
                         
                         <Link to="/media">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiPhotograph}
-                                label="3"
+                                label={counters.media || ''}
                                 labelColor="alternative"
                             > {t('sidebar.media')}
                             </Sidebar.Item>
                         </Link>
 
-                        <Link to="/reservations">
-                            <Sidebar.Item
-                                as="span"
-                                icon={HiBadgeCheck}
-                                label='7'
-                            > {t('sidebar.reservations')}
-                            </Sidebar.Item>
-                        </Link>                    
+                        
                     </Sidebar.ItemGroup>
 
                     {/* admin - content */}
@@ -88,7 +113,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             <Sidebar.Item
                                 as="span"
                                 icon={HiCalendar}
-                                label="1"
+                                label={counters.schedules || ''}
                                 labelColor="alternative"
                             > {t('sidebar.schedule')}
                             </Sidebar.Item>       
@@ -97,32 +122,21 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                         <Link to="/tours">
                             <Sidebar.Item
                                 as="span"
-                                label="5"
+                                label={counters.tours || ''}
                                 labelColor="alternative"
                                 icon={HiLocationMarker}
                             > {t('sidebar.tours')}
                             </Sidebar.Item>
                         </Link>
 
-                        <Link to="/blogs">
+                        <Link to="/reservations">
                             <Sidebar.Item
                                 as="span"
-                                label="10"
-                                labelColor="alternative"
-                                icon={HiPencilAlt}
-                            > {t('sidebar.blogs')}
+                                icon={HiBadgeCheck}
+                                label={counters.reservations || ''}
+                            > {t('sidebar.reservations')}
                             </Sidebar.Item>
-                        </Link>
-
-                        <Link to="/pages">
-                            <Sidebar.Item
-                                as="span"
-                                icon={HiDocument}
-                                label="1"
-                                labelColor="alternative"
-                            > {t('sidebar.pages')}
-                            </Sidebar.Item>       
-                        </Link>   
+                        </Link>                    
                     </Sidebar.ItemGroup>
 
                     {/* admin - users */}
@@ -131,7 +145,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                         <Link to="/reviews">
                             <Sidebar.Item
                                 as="span"
-                                label="182"
+                                label={counters.reviews || ''}
                                 labelColor="alternative"
                                 icon={HiChat}
                             > {t('sidebar.reviews')}

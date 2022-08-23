@@ -171,8 +171,7 @@ function MediaGallery({ images, setImages} : any) {
             }).catch(err => {
                 console.log(err);
                 setError(err.data);
-            }
-            );
+            });
     }
 
     useEffect(() => {
@@ -200,6 +199,7 @@ function MediaGallery({ images, setImages} : any) {
         return (
             <>
                 {
+                    // eslint-disable-next-line react/prop-types
                     images.map((image: any) => {
                         return (
                             <div key={image._id}
@@ -210,8 +210,9 @@ function MediaGallery({ images, setImages} : any) {
                                     // minHeight: minWidth,
                                     backgroundImage: `url(${baseURL}${image.filename})`,
                                     backgroundSize: 'cover',
+                                    border: '1px solid white'
                                 }}  
-                                className="dark:bg-gray-7a00 bg-gray-200 
+                                className="dark:bg-gray-7a00 bg-gray-200
                                 relative rounded flex items-center justify-center">
 
                                 {/* <img style={{

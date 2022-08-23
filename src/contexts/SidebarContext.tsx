@@ -18,7 +18,7 @@ const authUser: IAuthUser = {
 
 const authContext: IAuthContext = {
     state: authUser,
-    setState: null
+    setState: (x:any) => {x;},
 };
 
 export const AuthContext = createContext<IAuthContext>(authContext);
