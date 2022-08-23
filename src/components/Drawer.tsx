@@ -129,6 +129,11 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             </Sidebar.Item>
                         </Link>
 
+                                     
+                    </Sidebar.ItemGroup>
+
+                    {/* admin - users */}
+                    <Sidebar.ItemGroup>
                         <Link to="/reservations">
                             <Sidebar.Item
                                 as="span"
@@ -136,11 +141,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                                 label={counters.reservations || ''}
                             > {t('sidebar.reservations')}
                             </Sidebar.Item>
-                        </Link>                    
-                    </Sidebar.ItemGroup>
-
-                    {/* admin - users */}
-                    <Sidebar.ItemGroup>
+                        </Link>       
                         
                         <Link to="/reviews">
                             <Sidebar.Item
@@ -152,7 +153,8 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             </Sidebar.Item>
                         </Link>
                         
-                        <Link to="/users">
+                        
+                        {/* <Link to="/users">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiUsers}
@@ -165,7 +167,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                                 icon={HiCog}
                             > Settings
                             </Sidebar.Item>
-                        </Link>
+                        </Link> */}
                     </Sidebar.ItemGroup>
 
                     {/* toggles */}
