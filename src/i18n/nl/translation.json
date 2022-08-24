@@ -19,5 +19,14 @@
         "blogs":"Blogs",
         "page":"Pagina",
         "pages":"Paginas"
+    },
+    "home": {
+        "header": {
+            "title":"België",
+            "tagline":"Hallo! Ik ben Tatiana Lavrenova. Uw gids in België",
+            "description": "From the picturesque old town center to the beautiful Arden valleys, I'll show you Belgium like you've never seen it before",
+            "tours":"Tours",
+            "about":"About me"
+        }
     }
 }

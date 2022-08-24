@@ -5,6 +5,7 @@ import { HiMail, HiLockClosed } from 'react-icons/hi';
 import { ILogin, IPKCE, requestPKCE } from '../utilities/auth';
 import { useLogin } from '../hooks/useLogin';
 import {processErrorFields} from '../utilities/validation';
+import Navigation from '../components/Navigation';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -33,77 +34,82 @@ export default function LoginPage() {
       
     return (
         <>
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                {/* error message */}
-                <div className='text-red-600 dark:text-red-500"'>
-                    {error ? 
-                        error?.fields ? '' : error.message
-                        : '' }
-                </div>
-                {/* email */}
-                <div>
-                    <div className="mb-2 block">
-                        <Label
-                            htmlFor="email"
-                            value="Your email"
-                        />
-                    </div>
-                    <TextInput
-                        onChange={e => setEmail(e.target.value)}
-                        id="email"
-                        type="email"
-                        placeholder="name@tania.tours"
-                        required={true}
-                        shadow={true}
-                        icon={HiMail}
-                        color={processErrorFields(error?.fields, 'email') ? 'failure' : 'gray' }
-                        helperText={processErrorFields(error?.fields, 'email') ? error?.message : '' }
-                    />
-                </div>
-                {/* password */}
-                <div>
-                    <div className="mb-2 block">
-                        <Label
-                            htmlFor="password"
-                            value="Your password"
-                        />
-                    </div>
-                    <TextInput
-                        onChange={e => setPassword(e.target.value)}
-                        id="password"
-                        type="password"
-                        required={true}
-                        shadow={true}
-                        icon={HiLockClosed}
-                        color={processErrorFields(error?.fields, 'password') ? 'failure' : 'gray' }
-                        helperText={processErrorFields(error?.fields, 'password') ? error?.message : '' }
-                    />
-                </div>
-                {/* buttons/links */}
-                <div className='flex flex-wrap gap-2'>
-                    <Button type="submit"
-                        disabled={isLoading} >
-                        { isLoading ? (
-                            <div>
-                                <Spinner
-                                    size="sm"
-                                    light={true}
+            <div className='flex-col w-screen'>
+                <Navigation />
+                <div className='w-screen h-screen items-center justify-center flex'>
+                    <form className="flex flex-col gap-4 w-6/12" onSubmit={handleSubmit}>
+                        {/* error message */}
+                        <div className='text-red-600 dark:text-red-500"'>
+                            {error ? 
+                                error?.fields ? '' : error.message
+                                : '' }
+                        </div>
+                        {/* email */}
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="email"
+                                    value="Your email"
                                 />
-                                <span className='ml-2'>Login</span>
                             </div>
+                            <TextInput
+                                onChange={e => setEmail(e.target.value)}
+                                id="email"
+                                type="email"
+                                placeholder="name@tania.tours"
+                                required={true}
+                                shadow={true}
+                                icon={HiMail}
+                                color={processErrorFields(error?.fields, 'email') ? 'failure' : 'gray' }
+                                helperText={processErrorFields(error?.fields, 'email') ? error?.message : '' }
+                            />
+                        </div>
+                        {/* password */}
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="password"
+                                    value="Your password"
+                                />
+                            </div>
+                            <TextInput
+                                onChange={e => setPassword(e.target.value)}
+                                id="password"
+                                type="password"
+                                required={true}
+                                shadow={true}
+                                icon={HiLockClosed}
+                                color={processErrorFields(error?.fields, 'password') ? 'failure' : 'gray' }
+                                helperText={processErrorFields(error?.fields, 'password') ? error?.message : '' }
+                            />
+                        </div>
+                        {/* buttons/links */}
+                        <div className='flex flex-wrap gap-2'>
+                            <Button type="submit"
+                                disabled={isLoading} >
+                                { isLoading ? (
+                                    <div>
+                                        <Spinner
+                                            size="sm"
+                                            light={true}
+                                        />
+                                        <span className='ml-2'>Login</span>
+                                    </div>
                             
-                        ) : 'Login' }
-                    </Button>
-                    <Link to="/signup" >
-                        <Button color="gray">
+                                ) : 'Login' }
+                            </Button>
+                            <Link to="/signup" >
+                                <Button color="gray">
                         Register
-                        </Button>    
-                    </Link>
-                    <div className='flex flex-grow justify-end'>
-                        <DarkThemeToggle  />
-                    </div>
+                                </Button>    
+                            </Link>
+                            <div className='flex flex-grow justify-end'>
+                                <DarkThemeToggle  />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </>
     );
 }

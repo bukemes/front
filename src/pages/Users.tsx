@@ -11,7 +11,7 @@ export default function UsersPage() {
         <>
             <div>
                 <header className="App-header">
-                    <img src='/svg/vite.svg' className="App-logo" alt="logo" />
+                    <img src='/img/logo.png' className="App-logo" alt="logo" />
                     <p>Hello Vite + React!</p>
                     <p>
                         <Button type="button" onClick={() => setCount((count2) => count2 + 1)}>

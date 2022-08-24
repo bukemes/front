@@ -10,11 +10,15 @@ import Drawer from './components/Drawer';
 // pages - auth
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
+// pages - users
+import HomePage from './pages/users/Home';
+import TourPage from './pages/users/Tour';
+import ProfilePage from './pages/users/Profile';
 // pages - general
 import NotFoundPage from './pages/404';
 import TOSPage from './pages/TOS';
 import PrivacyPage from './pages/Privacy';
-// pages - interface
+// pages - adminUI
 import DashboardPage from './pages/Dashboard';
 import MediaPage from './pages/Media';
 import ReservationsPage from './pages/Reservations';
@@ -30,6 +34,9 @@ import Footer from './components/Footer';
 import { useAuthContext } from './hooks/useAuthContext';
 import { useRefresh } from './hooks/useRefresh';
 
+// CUSTOM 
+import Admin from './layout/Admin';
+
 export default function App() {
     // const [ isLoggedIn, setIsLoggedIn ] = useState(false);
     const { isAuthenticated, user } = useAuthContext();
@@ -43,47 +50,61 @@ export default function App() {
     } , []);
     
 
-    return (               
-        isAuthenticated ? (    
-            <Router>
-                <Drawer />
-                <main className='flex flex-col w-screen justify-center pt-2 pr-2 pb-2'
-                    style={{
-                        marginLeft: '272px'
-                    }}>
-                    {/*  h-screen */}
-                    <Routes>
-                        <Route path="/dashboard" element={<DashboardPage />} />
-                        <Route path="/media" element={<MediaPage />} />
-                        <Route path="/reservations" element={<ReservationsPage />} />
-                        <Route path="/schedule" element={<SchedulePage />} />
-                        <Route path="/tours" element={<ToursPage />} />
-                        <Route path="/blogs" element={<BlogsPage />} />
-                        <Route path="/users" element={<UsersPage />} />
-                        <Route path="/settings" element={<SettingsPage />} />
-                        <Route path="/tos" element={<TOSPage />} />
-                        <Route path="/privacy" element={<PrivacyPage />} />
-                        {/* special */}
-                        <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                        <Route path="/login" element={<Navigate to="/dashboard" replace />} />
-                        <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
-                        <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
-                    <Footer />
-                </main>
-            </Router>   
-        ) : (
-            <Router>
-                <main className='flex w-screen h-screen justify-center items-center'>
-                    <Routes>
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/signup" element={<SignupPage />} />
-                        <Route path="/tos" element={<TOSPage />} />
-                        <Route path="/privacy" element={<PrivacyPage />} />
-                        <Route path="*" element={<Navigate to="/login" replace />} />
-                    </Routes>
-                </main>
-            </Router>
-        )
+    // return (               
+    //     isAuthenticated ? (    
+    //         <Router>
+    //             <Drawer />
+    //             <main className='flex flex-col w-screen justify-center pt-2 pr-2 pb-2'
+    //                 style={{
+    //                     marginLeft: '272px'
+    //                 }}>
+    //                 {/*  h-screen */}
+    //                 <Routes>
+    //                     <Route path="/dashboard" element={<DashboardPage />} />
+    //                     <Route path="/media" element={<MediaPage />} />
+    //                     <Route path="/reservations" element={<ReservationsPage />} />
+    //                     <Route path="/schedule" element={<SchedulePage />} />
+    //                     <Route path="/tours" element={<ToursPage />} />
+    //                     <Route path="/blogs" element={<BlogsPage />} />
+    //                     <Route path="/users" element={<UsersPage />} />
+    //                     <Route path="/settings" element={<SettingsPage />} />
+    //                     <Route path="/tos" element={<TOSPage />} />
+    //                     <Route path="/privacy" element={<PrivacyPage />} />
+    //                     {/* special */}
+    //                     <Route path="/" element={<Navigate to="/dashboard" replace />} />
+    //                     <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+    //                     <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
+    //                     <Route path="*" element={<NotFoundPage />} />
+    //                 </Routes>
+    //                 <Footer />
+    //             </main>
+    //         </Router>   
+    //     ) : (
+    //         <Router>
+    //             <main className='flex w-screen h-screen justify-center items-center'>
+    //                 <Routes>
+    //                     <Route path="/login" element={<LoginPage />} />
+    //                     <Route path="/signup" element={<SignupPage />} />
+    //                     <Route path="/tos" element={<TOSPage />} />
+    //                     <Route path="/privacy" element={<PrivacyPage />} />
+    //                     <Route path="*" element={<Navigate to="/login" replace />} />
+    //                 </Routes>
+    //             </main>
+    //         </Router>
+    //     )
+    // );
+
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/tours/:id" element={<TourPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/admin/*" element={<Admin />} />
+            </Routes>
+        </Router>
     );
+
 }

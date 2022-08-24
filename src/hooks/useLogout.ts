@@ -9,6 +9,7 @@ export const useLogout = () => {
     const [isLoading, setIsLoading] = useState(false);
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
+    const pathname = window.location.pathname;
 
     const logout = () => {
         setIsLoading(true);
@@ -21,7 +22,7 @@ export const useLogout = () => {
             .then(() => { // { data } from response
                 setIsLoading(false);
                 dispatch({ type: 'LOGOUT' });
-                navigate('/login');
+                navigate(pathname);
             })
             .catch((err) => {
                 setIsLoading(false);

@@ -1,33 +1,40 @@
-import { Button, Table, ToggleSwitch } from 'flowbite-react';
+import { Button, Table } from 'flowbite-react';
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Navigation from '../components/Navigation';
-import { api } from '../utilities/api';
+import Navigation from '../../components/Navigation';
+import { api } from '../../utilities/api';
 import {
     HiTrash,
     HiCheckCircle,
     HiXCircle,
 } from 'react-icons/hi';
 
-export default function ReservationsPage() {
+export default function ProfilePage() {
+    return (
+        <>
+            <div className='flex-col w-screen'>
+                <Navigation />
+                
+                <Reservations  />
+            </div>
+            
+        </>
+    );
+}
+
+export function Reservations() {
     const [reservations, setReservations]: any = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isApproved, setIsApproved] = useState(false);
 
     useEffect(() => {
-        getSetReservations();
-    }, []);
-
-    function getSetReservations(){
-        api.get('/reservations')
+        api.get('/reservations/user')
             .then(res => {
                 setReservations(res.data);
-                setIsApproved(res.data.isApproved);
                 setIsLoading(false);
             }).catch(err => {
                 console.log(err);
             });
-    }
+    }, []);
 
     const handleDelete = (_id: string) => {
         setIsLoading(true);
@@ -46,33 +53,6 @@ export default function ReservationsPage() {
             );
     };
 
-    const handleToggleApproval = (e: any, data: any, approved: boolean) => {
-        e.preventDefault();
-
-        const newData = {
-            email: data.email,
-            userId: data.userId,
-            tour: data.tour,
-            tourId: data.tourId,
-            date: data.date,
-            isApproved: approved, // UPDATED
-        };
-
-        console.log(newData);
-
-        api.put(`/reservations/${data._id}`, newData)
-            .then(res => {
-                getSetReservations();
-                // console.log(res.data);
-                
-            // update
-            })
-            .catch(err => {
-                console.log(err);
-            });
-
-    };
-
     return (
         <Table className='w-full mt-5'>
             <Table.Head className='dark:[box-shadow:inset_0px_15px_10px_-15px_rgb(31,41,55);]'>
@@ -83,10 +63,7 @@ export default function ReservationsPage() {
                 Date
                 </Table.HeadCell>
                 <Table.HeadCell>
-                User
-                </Table.HeadCell>
-                <Table.HeadCell>
-                Status
+                Approved
                 </Table.HeadCell>
                 <Table.HeadCell>
                     {/* Delete */}
@@ -106,21 +83,9 @@ export default function ReservationsPage() {
                                     { reservation.date }
                                 </Table.Cell>
                                 <Table.Cell>
-                                    { reservation.email }
-                                </Table.Cell>
-                                <Table.Cell>
- 
                                     { reservation.isApproved 
-                                        ? ( 
-                                            
-                                            <Button color='success' onClick={(e) => handleToggleApproval(e, reservation, false)} >
-                                                <HiCheckCircle color='white' className="h-5 w-5" />
-                                            </Button>
-                                        )  : (
-                                            <Button color='lightpink' onClick={(e) => handleToggleApproval(e, reservation, true)}>
-                                                <HiXCircle color='red' className="h-5 w-5" />
-                                            </Button>
-                                        )
+                                        ? (<HiCheckCircle color='green' className="h-5 w-5" />) 
+                                        : (<HiXCircle color='red' className="h-5 w-5" />)
                                     }
                                 </Table.Cell>
                                 <Table.Cell>

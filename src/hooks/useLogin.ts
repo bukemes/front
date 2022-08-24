@@ -11,6 +11,7 @@ export const useLogin = () => {
     const [isLoading, setIsLoading] = useState(false);
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
+    // ReactRouter.browserHistory;
 
     const login = async (input: ILogin, pkce: IPKCE) => {
         setIsLoading(true);
@@ -34,16 +35,21 @@ export const useLogin = () => {
                 const newToken: string = Cookies.get('token') as string;
                 const { email, role }: any = jwt_decode(newToken);
                 setIsLoading(false);
-                if(role !== 'admin'){
-                    const error: ICustomError = {
-                        code: 401,
-                        type: 'UNAUTHORIZED',
-                        message: 'You are not an administrator',
-                    };
-                    setError(error);
+                // if(role !== 'admin'){
+                //     const error: ICustomError = {
+                //         code: 401,
+                //         type: 'UNAUTHORIZED',
+                //         message: 'You are not an administrator',
+                //     };
+                //     setError(error);
+                // } else {
+                    
+                // }
+                dispatch({ type: 'LOGIN', payload: { email, role } });
+                if(role === 'admin'){
+                    navigate('/admin/dashboard');
                 } else {
-                    dispatch({ type: 'LOGIN', payload: { email, role } });
-                    navigate('/media');
+                    navigate(-1);
                 }
                 
             })

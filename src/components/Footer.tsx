@@ -1,6 +1,7 @@
 import React from 'react';
 import { Footer } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import {DarkThemeToggle} from 'flowbite-react';
 
 export default function FooterComponent() {
     return (

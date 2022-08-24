@@ -149,7 +149,7 @@ function TourGallery({
                 {i18n.language ? (
                     <Table.Body className="divide-y">        
                         {
-                        // eslint-disable-next-line react/prop-types
+                            // eslint-disable-next-line react/prop-types
                             tours.map((tour: any) => {
                                 return (
                                     <Table.Row key={tour._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -247,13 +247,13 @@ function TourModal({
         const en = {
             language: 'en',
             title: titleEN,
-            descriptionEN,
+            description: descriptionEN,
         };
 
         const nl = {
             language: 'nl',
             title: titleNL,
-            descriptionNL,
+            description: descriptionNL,
         };
 
         const data = {
@@ -409,7 +409,7 @@ function TourModal({
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="schedules"
-                                value="Select your schedule"
+                                value={t('admin.selectschedule')}
                             />
                         </div>
                         <Select
@@ -434,7 +434,7 @@ function TourModal({
                         <div className="mb-2 block">
                             <Label
                                 htmlFor="images"
-                                value="Select your schedule"
+                                value={t('admin.selectimage')}
                             />
                         </div>
                         <Select

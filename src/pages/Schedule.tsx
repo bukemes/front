@@ -4,8 +4,7 @@ import Section from '../components/Section';
 // import type{Value} from 'react-multi-date-picker';
 import { Calendar, DateObject } from 'react-multi-date-picker';
 import DatePanel from 'react-multi-date-picker/plugins/date_panel';
-import colors from 'react-multi-date-picker/plugins/colors';
-import { Button, Card, Label, Table, TextInput } from 'flowbite-react';
+import { Button, Label, Table, TextInput } from 'flowbite-react';
 import {
     HiBackspace,
     HiTrash,
@@ -48,8 +47,6 @@ function CreateSchedule({schedules, setSchedules}: any){
             description,
             available: stringDates
         };
-
-        console.log(data);
 
         api.post('/schedules', data)
             .then(res => {

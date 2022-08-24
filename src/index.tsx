@@ -7,6 +7,10 @@ import { AuthContextProvider } from './contexts/AuthContext'; // authentication 
 import { Flowbite } from 'flowbite-react'; // theme context
 import App from './App'; // Main app component
 
+// import LogRocket from 'logrocket';
+// import setupLogRocketReact from 'logrocket-react';
+// LogRocket.init('rqukm7/taniatours');
+// setupLogRocketReact(LogRocket);
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 

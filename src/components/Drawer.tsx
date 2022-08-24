@@ -51,22 +51,22 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
 
 
     return (
-        <nav className="w-fit p-2 h-screen fixed">
+        <nav className="w-fit p-2 h-screen fixed z-50">
             <Sidebar aria-label="sidebar with navigation">
                 <Sidebar.Items>
-                    {/* logo */}                         
+                    {/* logo */}          
                     <Sidebar.Logo
-                        href="#"
-                        img='/svg/vite.svg'
-                        imgAlt="Flowbite logo"
-                        className='mb-0'
+                        href="/"
+                        img='/img/logo.png'
+                        imgAlt="Globe with a plane going around it"
+                        className='mb-0 '
                     >
                         <h1>{t('title')}</h1>
                     </Sidebar.Logo>
                     
                     {/* admin - site */}
                     <Sidebar.ItemGroup>
-                        <Link to="/dashboard">
+                        <Link to="/admin/dashboard">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiChartPie}
@@ -94,7 +94,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             </Sidebar.Item>
                         </Link>  */}
                         
-                        <Link to="/media">
+                        <Link to="/admin/media">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiPhotograph}
@@ -109,7 +109,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
 
                     {/* admin - content */}
                     <Sidebar.ItemGroup>
-                        <Link to="/schedule">
+                        <Link to="/admin/schedule">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiCalendar}
@@ -119,7 +119,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             </Sidebar.Item>       
                         </Link>     
 
-                        <Link to="/tours">
+                        <Link to="/admin/tours">
                             <Sidebar.Item
                                 as="span"
                                 label={counters.tours || ''}
@@ -134,7 +134,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
 
                     {/* admin - users */}
                     <Sidebar.ItemGroup>
-                        <Link to="/reservations">
+                        <Link to="/admin/reservations">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiBadgeCheck}
@@ -143,7 +143,7 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                             </Sidebar.Item>
                         </Link>       
                         
-                        <Link to="/reviews">
+                        <Link to="/admin/reviews">
                             <Sidebar.Item
                                 as="span"
                                 label={counters.reviews || ''}

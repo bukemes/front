@@ -1,6 +1,6 @@
 {
     "language": "en",
-    "title": "Bukemes",
+    "title": "TANIATOURS",
     "sidebar":{
         "dashboard": "Dashboard",
         "content builder": "Content Builder",
@@ -34,7 +34,9 @@
         "browse":"Browse",
         "nofile":"No file selected",
         "select":"--- Select an option ---",
-        "cancel":"Cancel"
+        "cancel":"Cancel",
+        "selectschedule": "Select a schedule",
+        "selectimage": "Select an image"
     },
     "footer": {
         "privacy":"Privacy Policy",
@@ -45,5 +47,33 @@
         "create":"Create Tour",
         "save":"Save Tour",
         "update":"Update Tour"
+    },
+    "home": {
+        "header": {
+            "title":"Belgium",
+            "tagline":"Hello! I am Tatiana Lavrenova. Your guide for Belgium",
+            "description": "From the picturesque old town center to the beautiful Arden valleys, I'll show you Belgium like you've never seen it before",
+            "tours":"Tours",
+            "about":"About me"
+        },
+        "about": {
+            "title":"About me",
+            "tagline":"I have been a tour guide for over 5 years.",
+            "description": "I am happy to tell my tourists not only about sights, but also about everyday life, traditions, achievements, customs, habits and laws of this small but very interesting country."
+        },
+        "tours": {
+            "title":"Tours",
+            "tagline":"From East to West and North to South",
+            "description": "I will guide you to the most interesting and unique places in Belgium"
+        },
+        "contact": {
+            "title":"Contact me",
+            "tagline":"If you have any questions, don't hesitate to contact me",
+            "description": "I am available through whatsapp or viber using the links provided links"
+        }
+    },
+    "tour": {
+        "book":"Book Tour",
+        "selectDate":"Select one of the available dates"
     }
 }
