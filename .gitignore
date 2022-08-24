@@ -23,5 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-#fontawesome pro
-src/assets/fontawesome/*
+dev-dist
