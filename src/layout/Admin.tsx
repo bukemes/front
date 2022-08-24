@@ -67,10 +67,10 @@ export default function App() {
                 <Route path="/tos" element={<AdminWrapper><TOSPage /></AdminWrapper>} />
                 <Route path="/privacy" element={<AdminWrapper><PrivacyPage /></AdminWrapper>} />
                 {/* special */}
-                {/* <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/login" element={<Navigate to="/dashboard" replace />} />
-                <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
-                <Route path="*" element={<NotFoundPage />} /> */}
+                <Route path="/" element={<Navigate to="/media" replace />} />
+                {/* <Route path="/login" element={<Navigate to="/dashboard" replace />} /> */}
+                {/* <Route path="/signup" element={<Navigate to="/dashboard" replace />} /> */}
+                <Route path="/*" element={<AdminWrapper><NotFoundPage /></AdminWrapper>} />
                 {/* </Routes> */}
                 {/* <Footer /> */}
                 {/* </main> */}

@@ -1,6 +1,15 @@
 {
     "language": "nl",
-    "title": "BoekMS",
+    "title": "TANIATOURS",
+    "auth":{
+        "email": "Uw mail",
+        "password": "Uw password",
+        "repeat": "Herhaal password",
+        "agree": "Ik ga akkoord met de ",
+        "privacy":"Wij delen nooit uw gegevens Lees onze",
+        "register":"Registreer",
+        "registerLong":"Registreer"
+    },
     "sidebar":{
         "dashboard": "Dashboard",
         "content builder": "Inhoud Bouwer",
@@ -18,15 +27,70 @@
         "blog":"Blog",
         "blogs":"Blogs",
         "page":"Pagina",
-        "pages":"Paginas"
+        "pages":"Paginas",
+        "review":"Recensie",
+        "reviews":"Recensies",
+        "log":"Log",
+        "logs":"Logs"
+    },
+    "admin":{
+        "title":"titel",   
+        "description":"Beschrijving",
+        "dates":"Datums",
+        "clear":"Ontruimen",
+        "create":"Creëren",
+        "upload":"Uploaden",
+        "browse":"Browsen",
+        "nofile":"Geen bestand geselecteerd",
+        "select":"--- Selecteer een optie ---",
+        "cancel":"Annuleren",
+        "selectschedule": "Kies een agenda",
+        "selectimage": "Kies een foto"
+    },
+    "footer": {
+        "privacy":"Privacybeleid",
+        "terms":"Servicevoorwaarden"
+    },
+    "tours": {
+        "edit":"Tour bewerken",
+        "create":"Tour creëren",
+        "save":"Tour opslaan",
+        "update":"Tour updaten"
     },
     "home": {
         "header": {
             "title":"België",
             "tagline":"Hallo! Ik ben Tatiana Lavrenova. Uw gids in België",
             "description": "From the picturesque old town center to the beautiful Arden valleys, I'll show you Belgium like you've never seen it before",
-            "tours":"Tours",
-            "about":"About me"
+            "tours":"Rondleidingen",
+            "about":"Over mij"
+        },
+        "about": {
+            "title":"Over mij",
+            "tagline":"Ik ben al meer dan 5 jaar reisleider.",
+            "description": "Ik vertel mijn toeristen graag niet alleen over bezienswaardigheden, maar ook over het dagelijks leven, tradities, prestaties, gebruiken, gewoonten en wetten van dit kleine maar zeer interessante land."
+        },
+        "tours": {
+            "title":"Rondleidingen",
+            "tagline":"Van oost naar west en noord naar zuid",
+            "description": "Ik begeleid je naar de meest interessante en unieke plekken in België"
+        },
+        "contact": {
+            "title":"Conteer mij",
+            "tagline":"Als u vragen heeft, aarzel dan niet om contact met mij op te nemen",
+            "description": "Ik ben beschikbaar via whatsapp of viber met behulp van de links verstrekte links"
+        },
+        "tour": {
+            "book":"Boek een rondleiding",
+            "selectDate":"Selecteer een van de beschikbare data",
+            "duration":"Duur in minuten:",
+            "childfriendly":"Kindvriendelijk",
+            "reservation":"Reserveren",
+            "pleaseLogin":"Login om te reserveren",
+            "reserve":"Plaats een reservatie",
+            "cancel":"Annuleren",
+            "reviews":"Recensies",
+            "postReview":"Plaats een recensie"
         }
     }
 }

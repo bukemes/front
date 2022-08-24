@@ -1,8 +1,18 @@
 {
     "language": "en",
     "title": "TANIATOURS",
+    "auth":{
+        "email": "Your email",
+        "password": "Your password",
+        "repeat": "Repeat password",
+        "agree": "I agree to the",
+        "privacy":"We'll never share your details. Read our",
+        "register":"Register",
+        "registerLong":"Register new account"
+    },
     "sidebar":{
         "dashboard": "Dashboard",
+        "home":"Home",
         "content builder": "Content Builder",
         "media": "Media",
         "profile": "Profile",
@@ -25,7 +35,7 @@
         "logs":"Logs"
     },
     "admin":{
-        "title":"Title",
+        "title":"Title",   
         "description":"Description",
         "dates":"Dates",
         "clear":"Clear",
@@ -74,6 +84,14 @@
     },
     "tour": {
         "book":"Book Tour",
-        "selectDate":"Select one of the available dates"
+        "selectDate":"Select one of the available dates",
+        "duration":"Duration in minutes: ",
+        "childfriendly":"Child friendly",
+        "reservation":"Make a reservation",
+        "pleaseLogin":"Please login to make a reservations",
+        "reserve":"Place a reservation",
+        "cancel":"Cancel",
+        "reviews":"Reviews",
+        "postReview":"Post Review"
     }
 }

@@ -22,7 +22,11 @@ export const useLogout = () => {
             .then(() => { // { data } from response
                 setIsLoading(false);
                 dispatch({ type: 'LOGOUT' });
-                navigate(pathname);
+                if(pathname === '/profile'){
+                    navigate('/');
+                } else {
+                    navigate(pathname); // redirect to the current page
+                }
             })
             .catch((err) => {
                 setIsLoading(false);

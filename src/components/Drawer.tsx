@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // components
 import { Sidebar, Button, DarkThemeToggle, } from 'flowbite-react';
 import { 
+    HiHome,
     HiChartPie, 
     HiPhotograph,
     HiCalendar,
@@ -66,13 +67,20 @@ export default function Drawer() { // props: any // eslint-disable-next-line @ty
                     
                     {/* admin - site */}
                     <Sidebar.ItemGroup>
-                        <Link to="/admin/dashboard">
+                        <Link to="/">
+                            <Sidebar.Item
+                                as="span"
+                                icon={HiHome}
+                            >{t('sidebar.home')}</Sidebar.Item>
+                        </Link>
+
+                        {/* <Link to="/admin/dashboard">
                             <Sidebar.Item
                                 as="span"
                                 icon={HiChartPie}
                             >  {t('sidebar.dashboard')}
                             </Sidebar.Item>
-                        </Link>
+                        </Link> */}
 
                         {/* <Link to="/pages">
                             <Sidebar.Item

@@ -25,7 +25,8 @@ export default function Navigation() {
     const active = 'block py-2 pr-4 pl-3 md:p-0 bg-blue-700 text-white dark:text-white md:bg-transparent md:text-blue-700';
 
 
-    
+    const styleActive = 'dark:text-white text-white font-bold '; // bg-blue-700 
+    const stylePassive = 'dark:text-gray-400 text-black font-normal';
     return (
         <Navbar
             // className="fixed"
@@ -50,7 +51,7 @@ export default function Navigation() {
 
                 <div className='
                     flex flex-col gap-4 ml-2 relative
-                    md:flex-row md:items-start md:items-center'
+                    md:flex-row md:items-start md:items-center z-50'
                 >
                     <Dropdown
                         arrowIcon={true}
@@ -66,7 +67,7 @@ export default function Navigation() {
                     </Dropdown>
 
                     {/* HOME */}
-                    <NavLink to="/" className={({ isActive }) => isActive ? active : 'dark:text-gray-300 text-black' }>Home</NavLink>
+                    <NavLink to="/" className={({ isActive }) => isActive ? styleActive : stylePassive }>Home</NavLink>
 
                     {/* AUTH RELATED THINGS */}
                     {
@@ -74,11 +75,11 @@ export default function Navigation() {
                             <>
                                 {user.role === 'admin' ? (
                                     <>
-                                        <NavLink to="/admin/dashboard" className={({ isActive }) => isActive ? active : 'dark:text-gray-300 text-black' }>Dashboard</NavLink>
+                                        <NavLink to="/admin/media" className={({ isActive }) => isActive ? styleActive : stylePassive }>Dashboard</NavLink>
                                     </>
                                 ) : (
                                     <>
-                                        <NavLink to="/profile" className={({ isActive }) => isActive ? active : 'dark:text-gray-300 text-black' }>Profile</NavLink>
+                                        <NavLink to="/profile" className={({ isActive }) => isActive ? styleActive : stylePassive }>Profile</NavLink>
                                     </>
                                 )}
 
@@ -86,7 +87,7 @@ export default function Navigation() {
                             </>
                             
                         ) : (
-                            <NavLink to="/login" className={({ isActive }) => isActive ? active : '' }>Login</NavLink>
+                            <NavLink to="/login" className={({ isActive }) => isActive ? styleActive : stylePassive }>Login</NavLink>
                         )
                     }
                 </div>

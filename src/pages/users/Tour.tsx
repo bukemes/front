@@ -85,38 +85,35 @@ function TourInfo({tour, setIsModal}: any) {
                             { tour.i18n.map((localInfo: any) => {
                                 if (localInfo.language == t('language')) {
                                     return (
-                                        <span key={localInfo.language} dangerouslySetInnerHTML={{__html: localInfo.description}}></span>
+                                        <span className='dark:text-gray-400 text-gray-800' key={localInfo.language} dangerouslySetInnerHTML={{__html: localInfo.description}}></span>
                                     );
-                                    // return ;
                                 }
                             })}
                         </p>
 
                         <div className='flex gap-2 justify-center'>
                             <Badge color="info">
-                            Duration in minutes: {tour.duration}
+                                {t('tour.duration')} {tour.duration}
                             </Badge>
                             <Badge color="success">
-                            Childfriendly
+                                {t('tour.childfriendly')}
                             </Badge>
                         </div>
                         
                         <div className='flex justify-center mt-5'>
                             {isAuthenticated ? (
                                 <Button onClick={() => setIsModal(true)}>
-                                    Make a reservation
+                                    {t('tour.reservation')}
                                 </Button>
                             ) : (
                                 <Link to='/login'>
                                     <Button color='gray'>
-                                        Please login to make a reservations
+                                        {t('tour.pleaseLogin')}
                                     </Button>
                                 </Link>
                             )}
                         </div>
-                        
                     </div>       
-                         
                 </div>
             </header>
         </>
@@ -127,8 +124,8 @@ function TourInfo({tour, setIsModal}: any) {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function CreateReservationModal({tour, isModal, setIsModal, date, setDate, schedule, setSchedule}: any) {
     const { t } = useTranslation();
-    const { isAuthenticated, user } = useAuthContext();
-    const today = new Date();
+    // const { isAuthenticated, user } = useAuthContext();
+    // const today = new Date();
     
     
    
@@ -291,10 +288,10 @@ function CreateReservationModalSimple({tour, isModal, setIsModal}: any) {
                     <Modal.Footer>
                         <Button type="submit">
                             <HiClipboardCheck className="h-5 w-5 mr-2" />    
-                            Make reservation
+                            {t('tour.reserve')}
                         </Button>
                         <Button color="gray" onClick={() => {handleCancel();}}>
-                            Cancel
+                            {t('tour.cancel')}
                         </Button>
                     </Modal.Footer>
                 </form>
@@ -364,8 +361,8 @@ function Reviews({tour}: any) {
                             onChange={(e: any) => setReview(e.target.value)}
                         />
                         <div className='flex gap-2'>
-                            <Button type="submit">Post Review</Button>
-                            <Button color="gray" onClick={() => setIsShowing(false)}>Cancel</Button>
+                            <Button type="submit">{t('tour.postReview')}</Button>
+                            <Button color="gray" onClick={() => setIsShowing(false)}>{t('tour.cancel')}</Button>
                         </div>
                     </form>
                 ) : null
@@ -376,7 +373,7 @@ function Reviews({tour}: any) {
                     <Table className='w-full mt-5'>
                         <Table.Head className='dark:[box-shadow:inset_0px_15px_10px_-15px_rgb(31,41,55);]'>
                             <Table.HeadCell>
-                                                    Reviews
+                                {t('tour.reviews')}
                             </Table.HeadCell>
                         </Table.Head>
                         <Table.Body className="divide-y">        
@@ -401,7 +398,3 @@ function Reviews({tour}: any) {
         </Section>
     );
 }
-
-// function ShowReviews() {
-
-// }

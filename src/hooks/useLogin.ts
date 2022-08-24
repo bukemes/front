@@ -47,7 +47,7 @@ export const useLogin = () => {
                 // }
                 dispatch({ type: 'LOGIN', payload: { email, role } });
                 if(role === 'admin'){
-                    navigate('/admin/dashboard');
+                    navigate('/admin/media');
                 } else {
                     navigate(-1);
                 }

@@ -151,13 +151,13 @@ function TourCards() {
                                         })}
                                     </h5>
                                 </a>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                                     { tour.i18n.map((localInfo: any) => {
                                         if (localInfo.language == t('language')) {
                                             return localInfo.description;
                                         }
                                     })}
-                                </p>
+                                </p> */}
                                 <Link to={`/tours/${tour._id}`} className="mr-2 inline-flex items-center py-2 px-3 text-sm font-medium text-center dark:text-white text-gray-600 hover:text-blue-600 rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Learn more <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                                 </Link>

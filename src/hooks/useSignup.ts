@@ -4,12 +4,15 @@ import { ISignup, http, IPKCE } from '../utilities/auth';
 import ICustomError from '../models/ICustomError';
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+
 
 export const useSignup = () => {
     const [error, setError] = useState<ICustomError | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const { dispatch } = useAuthContext();
-
+    const navigate = useNavigate();
+    
     const signup = async (input: ISignup, pkce: IPKCE) => {
         setIsLoading(true);
 
@@ -33,6 +36,7 @@ export const useSignup = () => {
                 const { email, role }: any = jwt_decode(newToken);
                 setIsLoading(false);
                 dispatch({ type: 'LOGIN', payload: { email, role } });
+                navigate('/');
             })
             .catch((err) => {
                 setIsLoading(false);

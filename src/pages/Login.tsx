@@ -6,8 +6,11 @@ import { ILogin, IPKCE, requestPKCE } from '../utilities/auth';
 import { useLogin } from '../hooks/useLogin';
 import {processErrorFields} from '../utilities/validation';
 import Navigation from '../components/Navigation';
+import { useTranslation } from 'react-i18next';
+
 
 export default function LoginPage() {
+    const { t } = useTranslation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // hooks
@@ -36,7 +39,7 @@ export default function LoginPage() {
         <>
             <div className='flex-col w-screen'>
                 <Navigation />
-                <div className='w-screen h-screen items-center justify-center flex'>
+                <div className='flex-grow lg:px-64 h-screen items-center justify-center flex'>
                     <form className="flex flex-col gap-4 w-6/12" onSubmit={handleSubmit}>
                         {/* error message */}
                         <div className='text-red-600 dark:text-red-500"'>
@@ -49,7 +52,7 @@ export default function LoginPage() {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="email"
-                                    value="Your email"
+                                    value={t('auth.email')}
                                 />
                             </div>
                             <TextInput
@@ -69,7 +72,7 @@ export default function LoginPage() {
                             <div className="mb-2 block">
                                 <Label
                                     htmlFor="password"
-                                    value="Your password"
+                                    value={t('auth.password')}
                                 />
                             </div>
                             <TextInput
@@ -100,7 +103,7 @@ export default function LoginPage() {
                             </Button>
                             <Link to="/signup" >
                                 <Button color="gray">
-                        Register
+                                    {t('auth.register')}
                                 </Button>    
                             </Link>
                             <div className='flex flex-grow justify-end'>
